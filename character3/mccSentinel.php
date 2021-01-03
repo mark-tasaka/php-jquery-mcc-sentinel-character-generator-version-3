@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dungeon Crawl Classics Warrior Character Generator</title>
+<title>Mutant Crawl Classics Sentinel Character Generator</title>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 	<meta charset="UTF-8">
-	<meta name="description" content="Dungeon Crawl Classics Warrior Character Generator. Goblinoid Games.">
-	<meta name="keywords" content="Dungeon Crawl Classics, Goblinoid Games,HTML5,CSS,JavaScript">
+	<meta name="description" content="Mutant Crawl Classics sentinel Character Generator. Goblinoid Games.">
+	<meta name="keywords" content="Mutant Crawl Classics, Goblinoid Games,HTML5,CSS,JavaScript">
 	<meta name="author" content="Mark Tasaka 2020">
     
-    <link rel="icon" href="../../images/favicon/icon.png" type="image/png" sizes="16x16"> 
+    <link rel="icon" href="../../../images/favicon/favicon.png" type="image/png" sizes="16x16"> 
 		
 
-	<link rel="stylesheet" type="text/css" href="css/warrior.css">
-	<link rel="stylesheet" type="text/css" href="css/warrior_post.css">
+	<link rel="stylesheet" type="text/css" href="css/sentinel.css">
     
     
     <script type="text/javascript" src="./js/dieRoll.js"></script>
@@ -299,7 +298,7 @@
        <span id="dieRollMethod"></span>
 
        
-       <span id="class">Warrior</span>
+       <span id="class">Sentinel</span>
        
        <span id="armourClass"></span>
 
@@ -308,10 +307,10 @@
        <span id="hitPoints"></span>
 
        <span id="languages"></span>
-       
+       <!--
        <span id="trainedWeapon"></span>
        <span id="tradeGoods"></span>
-
+    -->
        
        <span id="level">
            <?php
@@ -526,7 +525,7 @@
 
 	  
 	/*
-	 Character() - Warrior Character Constructor
+	 Character() - sentinel Character Constructor
 	*/
 	function Character() {
         
@@ -548,10 +547,10 @@
         let armour = '<?php echo $armourName ?>';
 	    let	profession = getOccupation();
 	    let birthAugur = getLuckySign();
-        let bonusLanguages = getBonusLanguages(intelligenceMod, birthAugur, luckMod);
+        let bonusLanguages = fnAddLanguages(intelligenceMod, birthAugur, luckMod);
 	    let baseAC = getBaseArmourClass(agilityMod) + adjustAC(birthAugur, luckMod);
 
-		let warriorCharacter = {
+		let sentinelCharacter = {
 			"strength": strength,
 			"agility": agility,
 			"stamina": stamina,
@@ -569,9 +568,9 @@
 			"luckySign": birthAugur.luckySign,
             "luckyRoll": birthAugur.luckyRoll,
             "move": <?php echo $speed ?> + addLuckToSpeed (birthAugur, luckMod),
-            "trainedWeapon": profession.trainedWeapon,
-            "tradeGoods": profession.tradeGoods,
-            "addLanguages": "Common" + bonusLanguages,
+            /*"trainedWeapon": profession.trainedWeapon,
+            "tradeGoods": profession.tradeGoods,*/
+            "addLanguages": "Nu-Speak" + bonusLanguages,
             "armourClass": <?php echo $totalAcDefense ?> + baseAC,
             "hp": getHitPoints (level, staminaMod) + hitPointAdjustPerLevel(birthAugur,  luckMod),
 			"melee": strengthMod + meleeAdjust(birthAugur, luckMod),
@@ -584,17 +583,17 @@
             "initiative": <?php echo $level ?> + agilityMod + adjustInit(birthAugur, luckMod)
 
 		};
-	    if(warriorCharacter.hitPoints <= 0 ){
-			warriorCharacter.hitPoints = 1;
+	    if(sentinelCharacter.hitPoints <= 0 ){
+			sentinelCharacter.hitPoints = 1;
 		}
-		return warriorCharacter;
+		return sentinelCharacter;
 	  
 	  }
 	  
 
 
   
-       let imgData = "images/warrior.png";
+       let imgData = "images/sentinel.png";
       
         $("#character_sheet").attr("src", imgData);
       
@@ -657,8 +656,8 @@
 
       
       $("#baseAC").html("(" + data.acBase + ")");
-      $("#trainedWeapon").html("Trained Weapon: " + data.trainedWeapon);
-      $("#tradeGoods").html("Trade Goods: " + data.tradeGoods);
+     /* $("#trainedWeapon").html("Trained Weapon: " + data.trainedWeapon);
+      $("#tradeGoods").html("Trade Goods: " + data.tradeGoods);*/
       
 
 	 

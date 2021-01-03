@@ -18,104 +18,66 @@ body{
 }
 
 
-/*DCC Warrior Generator Version 3 post data css*/
+/*MCC Sentinel Generator Version 3 post data css*/
 
 #characterName{
     position:absolute;
-    top: 135px;
-    left: 60px;
-	font-size: 0.85em;
+    top: 125px;
+    left: 70px;
+	font-size: 0.8em;
 }
 
 #gender{
     position:absolute;
-    top: 135px;
+    top: 125px;
     left: 290px;
-	font-size: 0.85em;
+	font-size: 0.8em;
 }
 
 
 #alignment{
     position:absolute;
-    top: 135px;
-    left: 580px;
-	font-size: 0.85em;
+    top: 185px;
+    left: 470px;
+	font-size: 0.8em;
 }
-
 
 #title{
     position:absolute;
-    top: 200px;
-    left: 270px;
-	font-size: 0.85em;
+    top: 185px;
+    left: 260px;
+	font-size: 0.8em;
 }
 
 
 #playerName{
     position:absolute;
-    top: 200px;
-    left: 470px;
-	font-size: 0.85em;
+    top: 125px;
+    left: 580px;
+	font-size: 0.8em;
 }
 
 
 #armourName{
     position:absolute;
-    top: 870px;
-    left: 85px;
-    font-size: 0.9em;
+    top: 805px;
+    left: 375px;
+    font-size: 0.8em;
     width: 300px;
-}
-
-#armourAc{
-    position:absolute;
-    top: 800px;
-    left: 850px;
-	font-size: 0.8em;
-}
-
-
-#armourWeight{
-    position:absolute;
-    top: 800px;
-    left: 895px;
-	font-size: 0.8em;
-}
-
-#shieldName{
-    position:absolute;
-    top: 620px;
-    left: 804px;
-	font-size: 1.3em;
-}
-
-#shieldAc{
-    position:absolute;
-    top: 820px;
-    left: 850px;
-	font-size: 0.8em;
-}
-
-
-#shieldWeight{
-    position:absolute;
-    top: 820px;
-    left: 895px;
-	font-size: 0.8em;
 }
 
 
 #weaponsList{
     position:absolute;
-    top: 995px;
-    left: 85px;
+    top: 900px;
+    left: 365px;
 	font-size: 0.65em;
 }
 
 #weaponsList2{
     position:absolute;
-    top: 995px;
-    left: 345px;
+    top: 900px;
+    left: 585px;
 	font-size: 0.65em;
 }
 
@@ -154,10 +116,10 @@ body{
 
 #gearList{
     position:absolute;
-    top: 735px;
-    left: 450px;
+    top: 1015px;
+    left: 50px;
     font-size: 0.6em;
-    width: 220px;
+    width: 250px;
 }
 
 #abilityScoreGeneration{
@@ -180,9 +142,9 @@ body{
 
 #baseAC{
     position:absolute;
-    top: 352px;
-    left: 222px;
-	font-size: 0.9em;
+    top: 320px;
+    left: 230px;
+	font-size: 1.4em;
 }
 
 
@@ -205,40 +167,40 @@ body{
 
 #level{
     position:absolute;
-    top: 200px;
-    left: 60px;
-	font-size: 0.85em;
+    top: 185px;
+    left: 70px;
+	font-size: 0.8em;
 }
 
 
 
 #strength{
     position:absolute;
-    top: 558px;
-    left: 250px;
+    top: 493px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 
 #strengthMod{
     position:absolute;
-    top: 558px;
-    left: 310px;
+    top: 493px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
 
 #agility{
     position:absolute;
-    top: 596px;
-    left: 250px;
+    top: 538px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 #agilityMod{
     position:absolute;
-    top: 596px;
-    left: 310px;
+    top: 538px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
@@ -246,163 +208,165 @@ body{
 
 #stamina{
     position:absolute;
-    top: 633px;
-    left: 250px;
+    top: 583px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 #staminaMod{
     position:absolute;
-    top: 633px;
-    left: 310px;
+    top: 583px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
 
 #personality{
     position:absolute;
-    top: 672px;
-    left: 250px;
+    top: 628px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 #personalityMod{
     position:absolute;
-    top: 672px;
-    left: 310px;
+    top: 628px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
 
 #intelligence{
     position:absolute;
-    top: 710px;
-    left: 250px;
+    top: 673px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 #intelligenceMod{
     position:absolute;
-    top: 710px;
-    left: 310px;
+    top: 673px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
 #luck{
     position:absolute;
-    top: 755px;
-    left: 250px;
+    top: 716px;
+    left: 210px;
 	font-size: 1.3em;
 }
 
 
 #luckMod{
     position:absolute;
-    top: 755px;
-    left: 310px;
+    top: 716px;
+    left: 270px;
 	font-size: 1.3em;
 }
 
 
 #class{
     position:absolute;
-    top: 200px;
-    left: 135px;
-	font-size: 0.85em;
+    top: 185px;
+    left: 115px;
+	font-size: 0.8em;
 }
 
 
 #speed{
     position:absolute;
-    top: 435px;
-    left: 835px;
-	font-size: 1.2em;
+    top: 395px;
+    left: 813px;
+    font-size: 1.1em;
+    color: white;
 }
 
 
 #profession{
     position:absolute;
-    top: 135px;
+    top: 125px;
     left: 380px;
-	font-size: 0.85em;
+	font-size: 0.8em;
 }
 
 #xpNextLevel{
     position:absolute;
-    top: 637px;
-    left: 830px;
+    top: 520px;
+    left: 570px;
 	font-size: 0.8em;
 }
 
 
 #armourClass{
     position:absolute;
-    top: 347px;
-    left: 177px;
-	font-size: 1.6em;
+    top: 320px;
+    left: 170px;
+	font-size: 1.4em;
 }
 
 #armourACBonus{
     position:absolute;
-    top: 930px;
-    left: 101px;
-	font-size: 0.9em;
+    top: 855px;
+    left: 383px;
+	font-size: 0.7em;
 }
 
 #armourACCheckPen{
     position:absolute;
-    top: 930px;
-    left: 191px;
-	font-size: 0.9em;
+    top: 855px;
+    left: 445px;
+	font-size: 0.7em;
 }
 
 #armourACSpeedPen{
     position:absolute;
-    top: 930px;
-    left: 275px;
-	font-size: 0.9em;
+    top: 855px;
+    left: 515px;
+	font-size: 0.7em;
 }
 
 #fumbleDie{
     position:absolute;
-    top: 930px;
-    left: 345px;
-	font-size: 0.9em;
+    top: 855px;
+    left: 580px;
+	font-size: 0.7em;
 }
 
 #hitPoints{
     position:absolute;
-    top: 470px;
-    left: 185px;
+    top: 405px;
+    left: 265px;
 	font-size: 1.1em;
 }
 
 #reflex{
     position:absolute;
-    top: 355px;
-    left: 755px;
-	font-size: 1.4em;
+    top: 310px;
+    left: 765px;
+    font-size: 1.1em;
+    color: white;
 }
 
 #fort{
     position:absolute;
-    top: 420px;
-    left: 755px;
-	font-size: 1.4em;
+    top: 330px;
+    left: 710px;
+    font-size: 1.1em;
 }
 
 #will{
     position:absolute;
-    top: 355px;
-    left: 825px;
-	font-size: 1.4em;
+    top: 330px;
+    left: 810px;
+    font-size: 1.1em;
 }
 
 #criticalDieTable{
     position:absolute;
-    top: 265px;
+    top: 250px;
     left: 230px;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
 #deedDie{
@@ -414,16 +378,17 @@ body{
 
 #initiative{
     position:absolute;
-    top: 370px;
-    left: 360px;
-    font-size: 0.9em;
+    top: 395px;
+    left: 710px;
+    font-size: 1.1em;
+    color: white;
 }
 
 #actionDice{
     position:absolute;
-    top: 265px;
-    left: 60px;
-    font-size: 0.85em;
+    top: 250px;
+    left: 70px;
+    font-size: 0.8em;
 }
 
 #threatRange{
@@ -435,51 +400,51 @@ body{
 
 #birthAugur{
     position:absolute;
-    top: 265px;
-    left: 350px;
+    top: 360px;
+    left: 380px;
     font-size: 0.8em;
-    width: 310px;
+    width: 240px;
 }
 
 #languages{
     position:absolute;
-    top: 430px;
-    left: 360px;
+    top: 810px;
+    left: 50px;
     font-size: 0.8em;
-    width: 300px;
+    width: 260px;
 }
 
 
 #melee{
     position:absolute;
-    top: 503px;
-    left: 573px;
-	font-size: 1em;
+    top: 250px;
+    left: 515px;
+	font-size: 1.2em;
 }
 
 
 #range{
     position:absolute;
-    top: 546px;
-    left: 573px;
-	font-size: 1em;
+    top: 292px;
+    left: 515px;
+	font-size: 1.2em;
 }
 
 
 
 #meleeDamage{
     position:absolute;
-    top: 503px;
-    left: 620px;
-	font-size: 1em;
+    top: 250px;
+    left: 600px;
+	font-size: 1.2em;
 }
 
 
 #rangeDamage{
     position:absolute;
-    top: 546px;
-    left: 620px;
-	font-size: 1em;
+    top: 292px;
+    left: 600px;
+	font-size: 1.2em;
 }
 
 
