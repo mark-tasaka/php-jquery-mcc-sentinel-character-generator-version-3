@@ -5,6 +5,10 @@ Designed with PHP and jQuery, the Mutant Crawl Classics Sentinel Character Gener
 
 ------------------------
 
+Update 1.01: 2021-02-03
+
+Updates to mccSentinel.php, sentinel.css, languages.js and luckySign.js.
+
 
 Initial Commit: 2021-01-02
 
