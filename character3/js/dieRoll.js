@@ -19,19 +19,19 @@
 			baseValue = 0;
 		}
 		
-		let numbers = [];
+		var numbers = [];
 		
 
-		for(let i = 0; i < numberOfDiceRolled; i++){
+		for(var i = 0; i < numberOfDiceRolled; i++){
 			numbers[i] = Math.floor((Math.random() * 6) + 1);
 		}
 		
         numbers.sort();
         
-		let sum = baseValue;
+		var sum = baseValue;
 			
-		for(let i = numberOfDiceRemoved; i < numberOfDiceRolled; i++){
-			sum += numbers[i];
+		for(var j = numberOfDiceRemoved; j < numberOfDiceRolled; j++){
+			sum += numbers[j];
 		}
 			
 		return sum ;

@@ -2,16 +2,16 @@
 
 function getHitPoints (level, staminaMod)
 {
-    let hitPoints = Math.floor((Math.random() * 4) + 1) + staminaMod;
+    var hitPoints = Math.floor((Math.random() * 4) + 1) + staminaMod;
     
-    let hitDice = level;
+    var hitDice = level;
     
-    let counter = 0;
+    var counter = 0;
             
     for(;counter < hitDice; counter++)
             {
 
-                let hpEachLevel = 0;
+                var hpEachLevel = 0;
                 hpEachLevel = Math.floor((Math.random() * 12) + 1) + staminaMod;
 
                 if(hpEachLevel < 5)

@@ -30,7 +30,7 @@ body{
 #gender{
     position:absolute;
     top: 125px;
-    left: 290px;
+    left: 295px;
 	font-size: 0.8em;
 }
 
@@ -38,7 +38,7 @@ body{
 #alignment{
     position:absolute;
     top: 185px;
-    left: 470px;
+    left: 445px;
 	font-size: 0.8em;
 }
 
@@ -53,7 +53,7 @@ body{
 #playerName{
     position:absolute;
     top: 125px;
-    left: 580px;
+    left: 550px;
 	font-size: 0.8em;
 }
 
@@ -63,7 +63,7 @@ body{
     top: 805px;
     left: 375px;
     font-size: 0.8em;
-    width: 300px;
+    width: 250px;
 }
 
 
@@ -286,7 +286,7 @@ body{
 #profession{
     position:absolute;
     top: 125px;
-    left: 380px;
+    left: 400px;
 	font-size: 0.8em;
 }
 
@@ -307,30 +307,17 @@ body{
 
 #armourACBonus{
     position:absolute;
-    top: 855px;
-    left: 383px;
-	font-size: 0.7em;
+    top: 845px;
+    left: 435px;
+	font-size: 0.8em;
 }
 
-#armourACCheckPen{
-    position:absolute;
-    top: 855px;
-    left: 445px;
-	font-size: 0.7em;
-}
-
-#armourACSpeedPen{
-    position:absolute;
-    top: 855px;
-    left: 515px;
-	font-size: 0.7em;
-}
 
 #fumbleDie{
     position:absolute;
-    top: 855px;
-    left: 580px;
-	font-size: 0.7em;
+    top: 845px;
+    left: 570px;
+	font-size: 0.8em;
 }
 
 #hitPoints{
@@ -360,6 +347,15 @@ body{
     top: 330px;
     left: 810px;
     font-size: 1.1em;
+}
+
+
+
+#maxTech{
+    position:absolute;
+    top: 405px;
+    left: 770px;
+    font-size: 1.2em;
 }
 
 #criticalDieTable{

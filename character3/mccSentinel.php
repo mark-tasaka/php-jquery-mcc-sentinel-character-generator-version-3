@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mutant Crawl Classics Sentinel Character Generator</title>
+<title>Mutant Crawl Classics Sentinel Character Generator Version 3</title>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
@@ -20,8 +20,6 @@
     <script type="text/javascript" src="./js/modifiers.js"></script>
     <script type="text/javascript" src="./js/hitPoinst.js"></script>
     <script type="text/javascript" src="./js/abilityScoreAddition.js"></script>
-    <script type="text/javascript" src="./js/attackBonus.js"></script>
-    <script type="text/javascript" src="./js/classAbilities.js"></script>
     <script type="text/javascript" src="./js/occupation.js"></script>
     <script type="text/javascript" src="./js/luckySign.js"></script>
     <script type="text/javascript" src="./js/adjustments.js"></script>
@@ -44,6 +42,7 @@
     include 'php/abilityScoreGen.php';
     include 'php/randomName.php';
     include 'php/xp.php';
+    include 'php/artifacts.php';
     
 
         if(isset($_POST["theCharacterName"]))
@@ -105,32 +104,24 @@
         $armourName = getArmour($armour)[0];
         
         $armourACBonus = getArmour($armour)[1];
-        $armourCheckPen = getArmour($armour)[2];
-        $armourSpeedPen = getArmour($armour)[3];
-        $armourFumbleDie = getArmour($armour)[4];
+        $armourFumbleDie = getArmour($armour)[2];
 
         if(isset($_POST['theCheckBoxShield']) && $_POST['theCheckBoxShield'] == 1) 
         {
-            $shieldName = getArmour(10)[0];
-            $shieldACBonus = getArmour(10)[1];
-            $shieldCheckPen = getArmour(10)[2];
-            $shieldSpeedPen = getArmour(10)[3];
-            $shieldFumbleDie = getArmour(10)[4];
+            $shieldName = getArmour(7)[0];
+            $shieldACBonus = getArmour(7)[1];
+            $shieldFumbleDie = getArmour(7)[2];
         }
         else
         {
-            $shieldName = getArmour(11)[0];
-            $shieldACBonus = getArmour(11)[1];
-            $shieldCheckPen = getArmour(11)[2];
-            $shieldSpeedPen = getArmour(11)[3];
-            $shieldFumbleDie = getArmour(11)[4];
+            $shieldName = getArmour(8)[0];
+            $shieldACBonus = getArmour(8)[1];
+            $shieldFumbleDie = getArmour(8)[2];
         } 
 
        $totalAcDefense = $armourACBonus + $shieldACBonus;
-       $totalAcCheckPen = $armourCheckPen + $shieldCheckPen;
-       $speedPenality = $armourSpeedPen;
 
-       $speed = 30 - $armourSpeedPen;
+       $speed = 30;
 
        $reflexBase = savingThrowReflex($level);
        $fortBase = savingThrowFort($level);
@@ -138,22 +129,11 @@
 
        $criticalDie = criticalDie($level);
 
-       $deedDie = deedDie($level);
 
        $actionDice = actionDice($level);
 
-       $threatRange = threatRange($level);
 
-       $title = title($level, $alignment);
-
-       
-       if(isset($_POST["theLuckyWeapon"]))
-       {
-           $luckyWeaponNumberString = $_POST["theLuckyWeapon"];
-       } 
-
-       $luckyWeaponNumber = (int)$luckyWeaponNumberString;
-       $luckyWeapon = getWeapon($luckyWeaponNumber)[0];
+       $title = title($level);
 
          
         $weaponArray = array();
@@ -165,7 +145,7 @@
     //For Random Select gear
     if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
     {
-        $weaponArray = getRandomWeapons($luckyWeaponNumber);
+        $weaponArray = getRandomWeapons();
 
     }
     else
@@ -201,35 +181,28 @@
         $gearArray = getRandomGear();
 
         $weaponCount = count($weaponArray);
-
-        $hasLongbow = false;
-        $hasShortbow = false;
+        $hasSling = false;
+        $hasSlingStaff = false;
 
         for($i = 0; $i < $weaponCount; ++$i)
         {
-            if($weaponArray[$i] == "12" && $hasShortbow == false)
+            if($weaponArray[$i] == "18" && $hasSlingStaff == false)
             {
-                array_push($gearArray, 24);
                 array_push($gearArray, 25);
                 
-                $hasLongbow = true;
+                $hasSling = true;
             }
 
-            if($weaponArray[$i] == "16" && $hasLongbow == false)
+            if($weaponArray[$i] == "19" && $hasSling == false)
+            {
+                array_push($gearArray, 25);
+
+                $hasSlingStaff = true;
+            }
+
+            if($weaponArray[$i] == "12")
             {
                 array_push($gearArray, 24);
-
-                $hasShortbow = true;
-            }
-
-            if($weaponArray[$i] == "4")
-            {
-                array_push($gearArray, 26);
-            }
-
-            if($weaponArray[$i] == "18")
-            {
-                array_push($gearArray, 27);
             }
 
 
@@ -254,6 +227,9 @@
         {
             array_push($gearNames, getGear($select)[0]);
         }
+
+
+    $artifactCheckBonus = getArtifactCheckBonus($level);
 
     
     
@@ -298,6 +274,10 @@
        <span id="dieRollMethod"></span>
 
        
+       <span id="artifactCheck"></span>
+        <span id="maxTech"></span>
+
+       
        <span id="class">Sentinel</span>
        
        <span id="armourClass"></span>
@@ -307,11 +287,6 @@
        <span id="hitPoints"></span>
 
        <span id="languages"></span>
-       <!--
-       <span id="trainedWeapon"></span>
-       <span id="tradeGoods"></span>
-    -->
-       
        <span id="level">
            <?php
                 echo $level;
@@ -373,25 +348,6 @@
             ?>
         </span>
 
-        
-        <span id="armourACCheckPen">
-            <?php
-                echo $totalAcCheckPen;
-            ?>
-        </span>
-        
-        <span id="armourACSpeedPen">
-            <?php
-            if($speedPenality == 0)
-            {
-                echo "-";
-            }
-            else
-            {
-                echo "-" . $speedPenality;
-            }
-            ?>
-        </span>
 
         <span id="fumbleDie">
             <?php
@@ -412,12 +368,6 @@
             ?>
         </span>
         
-        <span id="deedDie">
-            <?php
-                echo $deedDie;
-            ?>
-        </span>
-
         <span id="initiative">
         </span>
         
@@ -427,11 +377,6 @@
             ?>
         </span>
 
-        <span id="threatRange">
-            <?php
-                echo $threatRange;
-            ?>
-        </span>
         
         <span id="title">
             <?php
@@ -439,14 +384,11 @@
             ?>
         </span>
 
+
+
         
 		<p id="birthAugur"><span id="luckySign"></span>: <span id="luckyRoll"></span> (<span id="LuckySignBonus"></span>)</p>
 
-        <span id="luckyWeapon">
-            <?php
-                echo $luckyWeapon;
-            ?>
-        </span>
         
         <span id="melee"></span>
         <span id="range"></span>
@@ -491,7 +433,7 @@
 
               if($counter == $gearCount-1)
               {
-                  echo " & ";
+                  echo " and ";
               }
               elseif($counter > $gearCount-1)
               {
@@ -535,7 +477,6 @@
         let agility = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
         let stamina = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
         let	luck = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        
         let strengthMod = abilityScoreModifier(strength);
         let intelligenceMod = abilityScoreModifier(intelligence);
         let personalityMod = abilityScoreModifier(personality);
@@ -545,8 +486,10 @@
         let level = '<?php echo $level ?>';
         let gender = '<?php echo $gender ?>';
         let armour = '<?php echo $armourName ?>';
+        //let artifactCheckBonusAdd = getArtifactCheckBonus(level);
 	    let	profession = getOccupation();
 	    let birthAugur = getLuckySign();
+        let maxTechLevel = getMaxTechLevel(intelligence);
         let bonusLanguages = fnAddLanguages(intelligenceMod, birthAugur, luckMod);
 	    let baseAC = getBaseArmourClass(agilityMod) + adjustAC(birthAugur, luckMod);
 
@@ -568,19 +511,18 @@
 			"luckySign": birthAugur.luckySign,
             "luckyRoll": birthAugur.luckyRoll,
             "move": <?php echo $speed ?> + addLuckToSpeed (birthAugur, luckMod),
-            /*"trainedWeapon": profession.trainedWeapon,
-            "tradeGoods": profession.tradeGoods,*/
             "addLanguages": "Nu-Speak" + bonusLanguages,
             "armourClass": <?php echo $totalAcDefense ?> + baseAC,
             "hp": getHitPoints (level, staminaMod) + hitPointAdjustPerLevel(birthAugur,  luckMod),
-			"melee": strengthMod + meleeAdjust(birthAugur, luckMod),
-			"range": agilityMod + rangeAdjust(birthAugur, luckMod),
-			"meleeDamage": strengthMod + meleeDamageAdjust(birthAugur, luckMod),
-			"rangeDamage": rangeDamageAdjust(birthAugur, luckMod),
+			"melee": strengthMod + <?php echo $level ?> + meleeAdjust(birthAugur, luckMod),
+			"range": agilityMod +  <?php echo $level ?> + rangeAdjust(birthAugur, luckMod),
+			"meleeDamage": strengthMod + adjustMeleeDamage(birthAugur, luckMod),
+            "rangeDamage": adjustRangeDamage(birthAugur, luckMod),
+            "techLevel": maxTechLevel,
             "reflex": <?php echo $reflexBase ?> + agilityMod + adjustRef(birthAugur, luckMod),
             "fort": <?php echo $fortBase ?> + staminaMod + adjustFort(birthAugur,luckMod),
             "will": <?php echo $willBase ?> + personalityMod + adjustWill(birthAugur, luckMod),
-            "initiative": <?php echo $level ?> + agilityMod + adjustInit(birthAugur, luckMod)
+            "initiative": agilityMod + adjustInit(birthAugur, luckMod)
 
 		};
 	    if(sentinelCharacter.hitPoints <= 0 ){
@@ -656,8 +598,7 @@
 
       
       $("#baseAC").html("(" + data.acBase + ")");
-     /* $("#trainedWeapon").html("Trained Weapon: " + data.trainedWeapon);
-      $("#tradeGoods").html("Trade Goods: " + data.tradeGoods);*/
+      $("#maxTech").html(data.techLevel);
       
 
 	 

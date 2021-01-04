@@ -1,15 +1,11 @@
 <?php
 
-/*Warrior*/
+/*Sentinel*/
 
 function savingThrowReflex($level)
 {
-    $reflex = 0;
+    $reflex = 1;
 
-    if($level >= 1 && $level <= 3)
-    {
-        $reflex = 1;
-    }
     
     if($level >= 4 && $level <= 6)
     {
@@ -21,7 +17,7 @@ function savingThrowReflex($level)
         $reflex = 3;
     }
 
-    if($level >= 10)
+    if($level == 10)
     {
         $reflex = 4;
     }
@@ -33,37 +29,8 @@ function savingThrowReflex($level)
 
 function savingThrowFort($level)
 {
-    $fort = 0;
-
-    if($level >= 1 && $level <= 2)
-    {
-        $fort = 1;
-    }
     
-    if($level >= 3 && $level <= 4)
-    {
-        $fort = 2;
-    }
-    
-    if($level == 5)
-    {
-        $fort = 3;
-    }
-
-    if($level >= 6 && $level <= 7)
-    {
-        $fort = 4;
-    }
-
-    if($level >= 8 && $level <= 9)
-    {
-        $fort = 5;
-    }
-
-    if($level >= 10)
-    {
-        $fort = 6;
-    }
+    $fort = $level;
 
     return $fort;
 
@@ -72,26 +39,64 @@ function savingThrowFort($level)
 
 function savingThrowWill($level)
 {
-    $will = 0;
+    $will = 1;
 
-    if($level >= 3 && $level <= 5)
-    {
-        $will = 1;
-    }
-    
-    if($level >= 6 && $level <= 8)
+    if($level >= 3 && $level <= 4)
     {
         $will = 2;
     }
-
-    if($level >= 9)
+    
+    if($level >= 5 && $level <= 6)
     {
         $will = 3;
+    }
+
+    
+    if($level >= 7 && $level <= 9)
+    {
+        $will = 4;
+    }
+
+    if($level == 10)
+    {
+        $will = 5;
     }
 
     return $will;
 
 }
+
+
+
+function actionDice($level)
+{
+    $actionDice = "";
+
+    if($level <= 4)
+    {
+        $actionDice = "1d20";
+    }
+
+    if($level == 5)
+    {
+        $actionDice = "1d20+1d14";
+    }
+
+    if($level == 6)
+    {
+        $actionDice = "1d20+1d16";
+    }
+
+    if($level >= 7)
+    {
+        $actionDice = "1d20 (x2)";
+    }
+
+
+    return $actionDice;
+}
+
+
 
 function criticalDie($level)
 {
@@ -136,195 +141,90 @@ function criticalDie($level)
 
 }
 
-function deedDie($level)
+
+function title($level)
 {
-    $deedDie = "";
-
-    switch($level)
-    {
-        case 1:
-            $deedDie = "+d3";
-        break;
-        
-        case 2:
-            $deedDie = "+d4";
-        break;
-        
-        case 3:
-            $deedDie = "+d5";
-        break;
-        
-        case 4:
-            $deedDie = "+d6";
-        break;
-        
-        case 5:
-            $deedDie = "+d7";
-        break;
-        
-        case 6:
-            $deedDie = "+d8";
-        break;
-        
-        case 7:
-            $deedDie = "+d10+1";
-        break;
-
-        case 8:
-            $deedDie = "+d10+2";
-        break;
-        
-        case 9:
-            $deedDie = "+d10+3";
-        break;
-        
-        case 10:
-            $deedDie = "+d10+4";
-        break;
-
-        default:
-        $deedDie = "";
-    }
-
-    return $deedDie;
-}
-
-function actionDice($level)
-{
-    $actionDice = "";
-
-    if($level <= 4)
-    {
-        $actionDice = "1d20";
-    }
-
-    if($level == 5)
-    {
-        $actionDice = "1d20+1d14";
-    }
-
-    if($level == 6)
-    {
-        $actionDice = "1d20+1d16";
-    }
-
-    if($level >= 7 && $level <= 9)
-    {
-        $actionDice = "1d20+1d20";
-    }
-
-    if($level == 10)
-    {
-        $actionDice = "1d20+1d20+1d14";
-    }
-
-    return $actionDice;
-}
-
-
-function threatRange($level)
-{
-    $threat = "";
-
-    if($level <= 4)
-    {
-        $threat = "19-20";
-    }
-
-    if($level >= 5 && $level <= 8)
-    {
-        $threat = "18-20";
-    }
-
-    if($level >= 9)
-    {
-        $threat = "17-20";
-    }
-
-    return $threat;
-
-}
-
-function title($level, $alignment)
-{
-    $title = "";
-
-    if($alignment == "Lawful")
-    {
 
         if($level == 1)
         {
-            $title = "Squire";
+            $title = "Recruit";
         }
         else if($level == 2)
         {
-            $title = "Champion";
+            $title = "Trooper";
         }
         else if($level == 3)
         {
-            $title = "Knight";
+            $title = "Specialist";
         }
         else if($level == 4)
         {
-            $title = "Cavalier";
+            $title = "Commander";
+        }
+        else if($level == 5)
+        {
+            $title = "Sentinel";
         }
         else
         {
-            $title = "Paladin";
+            $title = "Sentinel Supreme";
         }
-
-    }
-
-    if($alignment == "Neutral")
-    {
-        if($level == 1)
-        {
-            $title = "Wilding";
-        }
-        else if($level == 2)
-        {
-            $title = "Barbarian";
-        }
-        else if($level == 3)
-        {
-            $title = "Berserker";
-        }
-        else if($level == 4)
-        {
-            $title = "Headperson";
-        }
-        else
-        {
-            $title = "Chieftain";
-        }
-    }
-
-    if($alignment == "Chaotic")
-    {
-        if($level == 1)
-        {
-            $title = "Bandit";
-        }
-        else if($level == 2)
-        {
-            $title = "Brigand";
-        }
-        else if($level == 3)
-        {
-            $title = "Marauder";
-        }
-        else if($level == 4)
-        {
-            $title = "Ravager";
-        }
-        else
-        {
-            $title = "Reaver";
-        }
-    }
 
 return $title;
 
+}
+
+function getArtifactCheckBonus($level)
+{
+    $bonus = 0;
+
+    switch ($level) 
+    {
+        case 1:
+            $bonus = 2;
+          break;
+          
+        case 2:
+            $bonus = 3;
+          break;
+          
+        case 3:
+            $bonus = 4;
+          break;
+
+        case 4:
+            $bonus = 5;
+          break;
+          
+        case 5:
+            $bonus = 5;
+          break;
+          
+        case 6:
+            $bonus = 6;
+          break;
+
+          case 7:
+            $bonus = 7;
+          break;
+          
+        case 8:
+            $bonus = 8;
+          break;
+          
+        case 9:
+            $bonus = 9;
+          break;
+          
+        case 10:
+            $bonus = 10;
+          break;
+          
+        default:
+            $bonus = 999;
+      } 
+
+    return $bonus;
 }
 
 
