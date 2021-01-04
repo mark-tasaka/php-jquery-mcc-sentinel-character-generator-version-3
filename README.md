@@ -5,6 +5,11 @@ Designed with PHP and jQuery, the Mutant Crawl Classics Sentinel Character Gener
 
 ------------------------
 
+Update 1.02: 2021-02-04
+
+Deleted files attackBonus.js and classAbilities.js.  Added new character sheet (sentinel.png).  Updated files mccSentinel.php, sentinel.css, adjustments.js, dieRoll.js, hitPoints.js, armour.php, artifacts.php, classDetails.php, gear.php and weapons.php.
+
+
 Update 1.01: 2021-02-03
 
 Updates to mccSentinel.php, sentinel.css, languages.js and luckySign.js.
