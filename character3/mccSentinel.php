@@ -16,11 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="css/sentinel.css">
     
     
-    <script type="text/javascript" src="./js/dieRoll.js"></script>
     <script type="text/javascript" src="./js/modifiers.js"></script>
     <script type="text/javascript" src="./js/hitPoinst.js"></script>
     <script type="text/javascript" src="./js/abilityScoreAddition.js"></script>
-    <script type="text/javascript" src="./js/occupation.js"></script>
     <script type="text/javascript" src="./js/luckySign.js"></script>
     <script type="text/javascript" src="./js/adjustments.js"></script>
     <script type="text/javascript" src="./js/languages.js"></script>
@@ -43,6 +41,7 @@
     include 'php/randomName.php';
     include 'php/xp.php';
     include 'php/artifacts.php';
+    include 'php/profession.php';
     
 
         if(isset($_POST["theCharacterName"]))
@@ -86,21 +85,126 @@
         {
             $abilityScoreGen = $_POST["theAbilityScore"];
         
+        }
+
+        
+        if(isset($_POST["theArtifact1V3"]))
+        {
+            $artifact1 = $_POST["theArtifact1V3"];
+        }
+    
+        /*Bonus to AC value*/
+        $acBonusFromArtifact = 0;
+            
+    
+    
+
+        $artifactName1 = getArtifact1($artifact1)[0];
+        $artifactCheck1 = getArtifact1($artifact1)[1];
+        $artifactEffect1 = getArtifact1($artifact1)[2];
+    
+        /*Determines whether Artifact grants AC bonus*/
+        $acBonusFromArtifact1 = artifactAcBonus ($artifactName1);
+    
+    
+    
+        if(isset($_POST["theArtifact2V3"]))
+        {
+            $artifact2 = $_POST["theArtifact2V3"];
+        }
+
+        $artifactName2 = getArtifact1($artifact2)[0];
+        $artifactCheck2 = getArtifact1($artifact2)[1];
+        $artifactEffect2 = getArtifact1($artifact2)[2];
+    
+        /*Determines whether Artifact grants AC bonus*/
+        $acBonusFromArtifact2 = artifactAcBonus ($artifactName2);
+    
+    
+    
+        if(isset($_POST["theArtifact3V3"]))
+        {
+            $artifact3 = $_POST["theArtifact3V3"];
+        }
+
+        $artifactName3 = getArtifact1($artifact3)[0];
+        $artifactCheck3 = getArtifact1($artifact3)[1];
+        $artifactEffect3 = getArtifact1($artifact3)[2];
+    
+        /*Determines whether Artifact grants AC bonus*/
+        $acBonusFromArtifact3 = artifactAcBonus ($artifactName3);
+    
+        $totalArtifactAC = $acBonusFromArtifact1 + $acBonusFromArtifact2 + $acBonusFromArtifact3;
+    
+    
+        
+        if(isset($_POST["theArmour"]))
+        {
+            $armour = $_POST["theArmour"];
+        }
+
+        $armourArtifactNumber = getArmourArtifactNumber($armour);
+
+            $artifactName4 = getArtifact1($armourArtifactNumber)[0];
+            $artifactCheck4 = getArtifact1($armourArtifactNumber)[1];
+            $artifactEffect4 = getArtifact1($armourArtifactNumber)[2];
+
+
+        $strengthBonusFromArtifact = artifactstrengthbonus ($artifactName4);
+
+        
+        $abilityScoreArray = array();
+        
+
+        for($i = 0; $i < 6; ++$i)
+        {
+            $abilityScore = rollAbilityScores ($abilityScoreGen);
+
+            array_push($abilityScoreArray, $abilityScore);
+
+        }
+
+        if(isset($_POST['theOptimizeAbilityScore']) && $_POST['theOptimizeAbilityScore'] == 1) 
+        {
+            rsort($abilityScoreArray);
+
+            $strengthBase = $abilityScoreArray[0];
+            $agility = $abilityScoreArray[2];
+            $stamina = $abilityScoreArray[1];
+            $personality = $abilityScoreArray[4];
+            $intelligence = $abilityScoreArray[5];
+            $luck = $abilityScoreArray[3];
+
+            $optimizeAbilityScoreMessage = "Ability Scores optimized in the order of Str, Sta, Agi, Luck, Per, Int.";
+        }
+        else
+        {
+            $strengthBase = $abilityScoreArray[0];
+            $agility = $abilityScoreArray[1];
+            $stamina = $abilityScoreArray[2];
+            $personality = $abilityScoreArray[3];
+            $intelligence = $abilityScoreArray[4];
+            $luck = $abilityScoreArray[5];
+            
+            $optimizeAbilityScoreMessage = "";
         } 
+
+        $strength = $strengthBonusFromArtifact + $strengthBase;
+
+        $strengthMod = getStrengthModifier($strength);
+        $agilityMod = getAbilityModifier($agility);
+        $staminaMod = getAbilityModifier($stamina);
+        $personalityMod = getAbilityModifier($personality);
+        $intelligenceMod = getAbilityModifier($intelligence);
+        $luckMod = getAbilityModifier($luck);
     
-    $dieType = generationMethod ($abilityScoreGen)[0];
-    $numberDie = generationMethod ($abilityScoreGen)[1];
-    $dieRemoved = generationMethod ($abilityScoreGen)[2];
-    $valueAdded = generationMethod ($abilityScoreGen)[3];
-    
-    $generationMessage = generationMesssage ($abilityScoreGen);
-    
+        $generationMessage = generationMesssage ($abilityScoreGen);
     
         if(isset($_POST["theArmour"]))
         {
             $armour = $_POST["theArmour"];
         }
-    
+
         $armourName = getArmour($armour)[0];
         
         $armourACBonus = getArmour($armour)[1];
@@ -119,7 +223,7 @@
             $shieldFumbleDie = getArmour(8)[2];
         } 
 
-       $totalAcDefense = $armourACBonus + $shieldACBonus;
+       $totalAcDefense = $armourACBonus + $shieldACBonus + $totalArtifactAC;
 
        $speed = 30;
 
@@ -231,6 +335,13 @@
 
     $artifactCheckBonus = getArtifactCheckBonus($level);
 
+    $artifactCheckBonusPlusInt = $artifactCheckBonus + $intelligenceMod;
+
+    $artifactCheckBonusDie = getArtifactCheckBonusDie($level);
+
+
+    $profession = getProfession();
+
     
     
     ?>
@@ -241,7 +352,6 @@
   <img id="character_sheet"/>
    <section>
        
-		<span id="profession"></span>
            
 		<span id="strength"></span>
 		<span id="agility"></span> 
@@ -274,7 +384,31 @@
        <span id="dieRollMethod"></span>
 
        
-       <span id="artifactCheck"></span>
+       <span id="artifactCheck">
+           <?php
+                if($artifactCheckBonusPlusInt == 0)
+                {
+                    echo 'd20';
+                }
+                else if($artifactCheckBonusPlusInt < 0)
+                {
+                    echo 'd20-1';
+                }
+                else
+                {
+                    echo 'd20+' . $artifactCheckBonusPlusInt;
+                }
+           ?>
+       </span>
+
+       
+       <span id="artifactCheckBonusDie">
+           <?php
+                echo $artifactCheckBonusDie;
+           ?>
+        </span>
+
+
         <span id="maxTech"></span>
 
        
@@ -323,6 +457,81 @@
         
         <span id="speed"></span>
 
+
+       	                 
+        <span id="artifactName1">
+           <?php
+                echo $artifactName1;
+           ?>
+        </span>
+              
+       <span id="artifactCheck1">
+           <?php
+                echo $artifactCheck1;
+           ?>
+        </span>
+              
+       <span id="artifactEffect1">
+           <?php
+                echo $artifactEffect1;
+           ?>
+        </span>
+      
+              	                 
+       <span id="artifactName2">
+           <?php
+                echo $artifactName2;
+           ?>
+        </span>
+              
+       <span id="artifactCheck2">
+           <?php
+                echo $artifactCheck2;
+           ?>
+        </span>
+              
+       <span id="artifactEffect2">
+           <?php
+                echo $artifactEffect2;
+           ?>
+        </span>
+      
+                     	                 
+       <span id="artifactName3">
+           <?php
+                echo $artifactName3;
+           ?>
+        </span>
+              
+       <span id="artifactCheck3">
+           <?php
+                echo $artifactCheck3;
+           ?>
+        </span>
+              
+       <span id="artifactEffect3">
+           <?php
+                echo $artifactEffect3;
+           ?>
+        </span>
+
+        <span id="artifactName4">
+           <?php
+                echo $artifactName4;
+           ?>
+        </span>
+              
+       <span id="artifactCheck4">
+           <?php
+                echo $artifactCheck4;
+           ?>
+        </span>
+              
+       <span id="artifactEffect4">
+           <?php
+                echo $artifactEffect4;
+           ?>
+        </span>
 
               
        <span id="armourName">
@@ -452,7 +661,13 @@
 
        <span id="abilityScoreGeneration">
             <?php
-           echo $generationMessage;
+           echo $generationMessage . '<br/>' . $optimizeAbilityScoreMessage;
+           ?>
+       </span>
+
+       <span id="profession">
+            <?php
+           echo $profession;;
            ?>
        </span>
        
@@ -471,23 +686,21 @@
 	*/
 	function Character() {
         
-        let strength = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let	intelligence = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let	personality = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let agility = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let stamina = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let	luck = rollDice(<?php echo $dieType ?> ,<?php echo $numberDie ?>, <?php echo $dieRemoved ?>, <?php echo $valueAdded ?>);
-        let strengthMod = abilityScoreModifier(strength);
-        let intelligenceMod = abilityScoreModifier(intelligence);
-        let personalityMod = abilityScoreModifier(personality);
-        let agilityMod = abilityScoreModifier(agility);
-        let staminaMod = abilityScoreModifier(stamina);
-        let luckMod = abilityScoreModifier(luck);
+        let strength = <?php echo $strength ?>;
+        let	intelligence = <?php echo $intelligence ?>;
+        let	personality = <?php echo $personality ?>;
+        let agility = <?php echo $agility ?>;
+        let stamina = <?php echo $stamina ?>;
+        let	luck = <?php echo $luck ?>;
+        let strengthMod = <?php echo $strengthMod ?>;
+        let intelligenceMod = <?php echo $intelligenceMod ?>;
+        let personalityMod = <?php echo $personalityMod ?>;
+        let agilityMod = <?php echo $agilityMod ?>;
+        let staminaMod = <?php echo $staminaMod ?>;
+        let luckMod = <?php echo $luckMod ?>;
         let level = '<?php echo $level ?>';
         let gender = '<?php echo $gender ?>';
         let armour = '<?php echo $armourName ?>';
-        //let artifactCheckBonusAdd = getArtifactCheckBonus(level);
-	    let	profession = getOccupation();
 	    let birthAugur = getLuckySign();
         let maxTechLevel = getMaxTechLevel(intelligence);
         let bonusLanguages = fnAddLanguages(intelligenceMod, birthAugur, luckMod);
@@ -506,7 +719,6 @@
             "agilityModifer": addModifierSign(agilityMod),
             "staminaModifer": addModifierSign(staminaMod),
             "luckModifer": addModifierSign(luckMod),
-			"profession":  profession.occupation,
             "acBase": baseAC,
 			"luckySign": birthAugur.luckySign,
             "luckyRoll": birthAugur.luckyRoll,
@@ -542,7 +754,6 @@
 
       let data = Character();
       
-      $("#profession").html(data.profession);
 		 
       $("#strength").html(data.strength);
       

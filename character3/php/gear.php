@@ -19,7 +19,7 @@ function getGear($input)
         $a12 = array("Oil Lamp");
         $a13 = array("Lamp oil (small clay bottle)");
         $a14 = array("Reflective disc (mirror)");
-        $a15 = array("Oil (flask)");
+        $a15 = array("Walking stick");
         $a16 = array("Hemp rope (50’)");
         $a17 = array("Jerken roxen meat (5 days)");
         $a18 = array("Rope (50 feet)");

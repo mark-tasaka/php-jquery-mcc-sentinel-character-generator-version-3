@@ -4,7 +4,7 @@
     function getWeapon($input)
     {
         $a00 = array("Great club", "1d10");
-        $a01 = array("Atlati (same as javelin)", "1d6");
+        $a01 = array("Atlati (as javelin)", "1d6");
         $a02 = array("Blowgun", "1d3/1d5");
         $a03 = array("Cudgel", "1d4");
         $a04 = array("Tomahawk (30/60/90)", "1d6");

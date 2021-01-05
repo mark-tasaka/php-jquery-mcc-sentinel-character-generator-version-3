@@ -228,4 +228,58 @@ function getArtifactCheckBonus($level)
 }
 
 
+function getArtifactCheckBonusDie($level)
+{
+    $bonus = '';
+
+    switch ($level) 
+    {
+        case 1:
+            $bonus = '+1d2';
+          break;
+          
+        case 2:
+            $bonus = '+1d3';
+          break;
+          
+        case 3:
+            $bonus = '+1d4';
+          break;
+
+        case 4:
+            $bonus = '+1d5';
+          break;
+          
+        case 5:
+            $bonus = '+1d6';
+          break;
+          
+        case 6:
+            $bonus = '+1d7';
+          break;
+
+          case 7:
+            $bonus = '+1d8';
+          break;
+          
+        case 8:
+            $bonus = '+1d10';
+          break;
+          
+        case 9:
+            $bonus = '+1d12';
+          break;
+          
+        case 10:
+            $bonus = '+1d14';
+          break;
+          
+        default:
+            $bonus = '000';
+      } 
+
+    return $bonus;
+}
+
+
 ?>

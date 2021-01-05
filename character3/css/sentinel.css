@@ -124,10 +124,10 @@ body{
 
 #abilityScoreGeneration{
     position:absolute;
-    top: 1110px;
-    left: 700px;
+    top: 1148px;
+    left: 685px;
     font-size: 0.5em;
-    width: 190px;
+    width: 225px;
 }
 
 
@@ -358,6 +358,22 @@ body{
     font-size: 1.2em;
 }
 
+
+#artifactCheck{
+    position:absolute;
+    top: 510px;
+    left: 665px;
+    font-size: 1.2em;
+}
+
+#artifactCheckBonusDie
+{
+    position:absolute;
+    top: 510px;
+    left: 820px;
+    font-size: 1.2em;
+}
+
 #criticalDieTable{
     position:absolute;
     top: 250px;
@@ -452,5 +468,125 @@ body{
     position: absolute;
     top: 100px;
     left:  50px;
+	font-size: 0.5em;
+}
+
+
+
+#artifactName1{
+    position: absolute;
+    top: 620px;
+    left: 380px;
+    width: 180px;
+	font-size: 0.6em;
+}
+
+#artifactCheck1{
+    position: absolute;
+    top: 620px;
+    left: 550px;
+	font-size: 0.6em;
+}
+
+#artifactEffect1{
+    position: absolute;
+    top: 620px;
+    left: 585px;
+    width: 330px;
+	font-size: 0.5em;
+}
+
+
+#artifactName2{
+    position: absolute;
+    top: 650px;
+    left: 380px;
+    width: 180px;
+	font-size: 0.6em;
+}
+
+#artifactCheck2{
+    position: absolute;
+    top: 650px;
+    left: 550px;
+	font-size: 0.6em;
+}
+
+#artifactEffect2{
+    position: absolute;
+    top: 650px;
+    left: 585px;
+    width: 330px;
+	font-size: 0.5em;
+}
+
+
+#artifactName3{
+    position: absolute;
+    top: 680px;
+    left: 380px;
+    width: 180px;
+	font-size: 0.6em;
+}
+
+#artifactCheck3{
+    position: absolute;
+    top: 680px;
+    left: 550px;
+	font-size: 0.6em;
+}
+
+#artifactEffect3{
+    position: absolute;
+    top: 680px;
+    left: 585px;
+    width: 330px;
+	font-size: 0.5em;
+}
+
+
+#artifactName4{
+    position: absolute;
+    top: 710px;
+    left: 380px;
+    width: 180px;
+	font-size: 0.6em;
+}
+
+#artifactCheck4{
+    position: absolute;
+    top: 710px;
+    left: 550px;
+	font-size: 0.6em;
+}
+
+#artifactEffect4{
+    position: absolute;
+    top: 710px;
+    left: 585px;
+    width: 330px;
+	font-size: 0.5em;
+}
+
+#artifactName5{
+    position: absolute;
+    top: 740px;
+    left: 380px;
+    width: 180px;
+	font-size: 0.6em;
+}
+
+#artifactCheck5{
+    position: absolute;
+    top: 740px;
+    left: 550px;
+	font-size: 0.6em;
+}
+
+#artifactEffect5{
+    position: absolute;
+    top: 740px;
+    left: 585px;
+    width: 330px;
 	font-size: 0.5em;
 }
