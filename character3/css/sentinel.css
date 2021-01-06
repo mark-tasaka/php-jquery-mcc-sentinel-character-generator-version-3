@@ -377,7 +377,7 @@ body{
 #criticalDieTable{
     position:absolute;
     top: 250px;
-    left: 230px;
+    left: 90px;
     font-size: 0.8em;
 }
 
@@ -399,7 +399,7 @@ body{
 #actionDice{
     position:absolute;
     top: 250px;
-    left: 70px;
+    left: 220px;
     font-size: 0.8em;
 }
 
