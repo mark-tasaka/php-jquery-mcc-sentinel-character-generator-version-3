@@ -6,6 +6,11 @@ Designed with PHP and jQuery, the Mutant Crawl Classics Sentinel Character Gener
 ------------------------
 
 
+Update 1.05: 2021-02-07
+
+Updated mccSentinel.php and sentinel.css.
+
+
 Update 1.04: 2021-02-06
 
 Updated sentinel.css.
