@@ -381,7 +381,6 @@
        </span>
        
        
-       <span id="dieRollMethod"></span>
 
        
        <span id="artifactCheck">
@@ -782,8 +781,6 @@
       $("#luckMod").html(data.luckModifer);
       
       
-      
-      $("#dieRollMethod").html(data.dieRollMethod);
             
       $("#hitPoints").html(data.hp);
       
