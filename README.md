@@ -6,6 +6,18 @@ Designed with PHP and jQuery, the Mutant Crawl Classics Sentinel Character Gener
 ------------------------
 
 
+Live version of the Mutant Crawl Classics (MCC) Sentinel Character Generator Version 3 2is found at:
+
+Artifacts of the Ancient Ones: A Mutant Crawl Classics Fan Site
+
+https://www.oldschooladventures.org/mcc/classes/sentinel/
+
+-------------------------------
+
+Update 1.06: 2021-01-13
+
+MCC Sentinel Generator Launch Page added.
+
 Update 1.05: 2021-02-07
 
 Updated mccSentinel.php and sentinel.css.
