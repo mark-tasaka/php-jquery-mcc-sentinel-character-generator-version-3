@@ -1,0 +1,253 @@
+
+
+.descript_text {
+    margin-left: 100px;
+    margin-right: 100px;
+    font-style: italic;
+}
+
+
+.content1b {
+    width: 500px;
+    margin: 0px auto;
+  text-align: center;
+    
+}
+
+.formIputDescription1b{
+	color: #ffffff;
+    margin-left: 10px;
+}
+
+
+
+#generate_level0_characters1aa {
+	background-image: url(../images/buttons/submit_button.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#generate_level0_characters1aa:hover {
+	background-image: url(../images/buttons/submit_button3.png);
+
+}
+
+
+#reset__level0_characters1aa{
+	background-image: url(../images/buttons/reset_button.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#reset__level0_characters1aa:hover{
+	background-image: url(../images/buttons/reset_button2.png);
+
+}
+
+
+#generate_level0_characters1b {
+	background-image: url(../images/buttons/submit_button.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#generate_level0_characters1b:hover {
+	background-image: url(../images/buttons/submit_button3.png);
+
+}
+
+
+
+#reset__level0_characters1b{
+	background-image: url(../images/buttons/reset_button.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#reset__level0_characters1b:hover{
+	background-image: url(../images/buttons/reset_button2.png);
+
+}
+
+ /* Style the buttons that are used to open and close the accordion panel */
+ button.accordion {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    /*padding: 18px;*/
+    width: 500px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+	background-image: url(../images/buttons/zero_button.png);
+	background-repeat: no-repeat;
+    height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color:  black;
+	background-image: url(../images/buttons/zero_button2.png);
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0px;
+    background-color: #0B3861;
+    display: none;
+    width: 495px;
+	margin-left: auto;
+	margin-right: auto;
+} 
+
+
+ /* Style the buttons that are used to open and close the accordion panel */
+ button.accordion2 {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    /*padding: 18px;*/
+    width: 500px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+	background-image: url(../images/buttons/zero_buttonA.png);
+	background-repeat: no-repeat;
+    height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion2.active, button.accordion2:hover {
+    background-color:  black;
+	background-image: url(../images/buttons/zero_buttonA2.png);
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+
+
+
+.updates_text2 {
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+
+ /* Style the buttons that are used to open and close the accordion panel */
+ button.accordionV1 {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    /*padding: 18px;*/
+    width: 500px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+	background-image: url(../images/buttons/chracterGenVOne.png);
+	background-repeat: no-repeat;
+    height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordionV1.active, button.accordionV1:hover {
+    background-color:  black;
+	background-image: url(../images/buttons/chracterGenVOne2.png);
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordionV2 {
+    background-color: black;
+    color: black;
+    cursor: pointer;
+    /*padding: 18px;*/
+    width: 500px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+	background-image: url(../images/buttons/chracterGenVTwo.png);
+	background-repeat: no-repeat;
+    height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordionV2.active, button.accordionV2:hover {
+    background-color:  black;
+	background-image: url(../images/buttons/chracterGenVTwo2.png);
+	/*background-attachment: fixed;*/
+	background-repeat: no-repeat;
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+div.panelWarrior {
+    padding: 0px;
+    background-color: #0B3861;
+    display: none;
+    width: 495px;
+	margin-left: auto;
+	margin-right: auto;
+} 

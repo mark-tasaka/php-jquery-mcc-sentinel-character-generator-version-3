@@ -1,0 +1,71 @@
+
+.contentBasic {
+	
+width: 650px;
+margin: 0px auto;
+}
+
+
+.generatorbuttons2 {
+	margin: 10px;
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+}
+	
+
+
+
+#generate_charactersWarriorV3 {
+	background-image: url(../images/submit_character1.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#generate_charactersWarriorV3:hover {
+	background-image: url(../images/submit_character2.png);
+}
+
+
+#reset_generator3{
+	background-image: url(../images/reset_character1.png);
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+	background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#reset_generator3:hover{
+	background-image: url(../images/reset_character2.png);
+
+}
+
+
+.bold{
+	font-weight: bold;
+}
+
+
+.text_link{
+	color: #ffffff;
+	text-decoration: none;
+	font-style: italic;
+}
+
+
+.text_link:hover{
+	color: lightskyblue;
+	text-decoration: none;
+}
